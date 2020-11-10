@@ -2250,7 +2250,7 @@ country_event = {
     id = france.36
     title = france.36.t
     desc = france.36.d
-    picture = GFX_news_event_generic_rally
+    picture = GFX_report_event_generic_rally2
 
     fire_only_once = yes
 
@@ -2289,7 +2289,7 @@ country_event = {
     id = france.37
     title = france.37.t
     desc = france.37.d
-    picture = GFX_news_event_generic_rally
+    picture = GFX_report_event_pierre_laval
 
     fire_only_once = yes
 
@@ -2317,12 +2317,12 @@ country_event = {
     }
 }
 
-#Daladier forms New Government
+#Camille Chautemps becomes prime minister
 country_event = {
-    id = france.38
-    title = france.38.t
-    desc = france.38.d
-    picture = GFX_report_event_generic_sign_treaty3
+    id = france.40
+    title = france.40.t
+    desc = france.40.d
+    picture = GFX_report_event_generic_read_write
 
     fire_only_once = yes
 
@@ -2330,12 +2330,93 @@ country_event = {
 				has_country_flag = prime_minister_leon_blum
         original_tag = FRA
         has_government = democratic
-				date > 1938.4.1
-				date < 1938.4.20
+				date > 1937.6.20
+				date < 1937.7.10
     }
 
 		mean_time_to_happen = {
-        days = 10
+        days = 9
+    }
+
+    option = {
+        name = france.40.a
+				retire_country_leader = yes
+				create_country_leader = {
+					name = "Cammile Chautemps"
+					desc = "POLITICS_ÉDOUARD_DALADIER_DESC"
+					picture = "Portrait_France_Camille_Chautemps.dds"
+					expire = "1965.1.1"
+					ideology = socialism
+					traits = {
+						appeaser
+						dealbroker
+						stout_defender
+					}
+				}
+				set_country_flag = camille_chautemps_prime_minister
+				add_political_power = 40
+    }
+}
+
+#Camille Chautemps Resigns
+country_event = {
+    id = france.39
+    title = france.39.t
+    desc = france.39.d
+    picture = GFX_report_event_bose_meeting
+
+    fire_only_once = yes
+
+    trigger = {
+				has_country_flag = camille_chautemps_prime_minister
+				has_global_flag = anschuluss_completed
+        original_tag = FRA
+        has_government = democratic
+    }
+
+		mean_time_to_happen = {
+        days = 7
+    }
+
+    option = {
+        name = france.39.a
+				retire_country_leader = yes
+				create_country_leader = {
+					name = "Léon Blum"
+					desc = "POLITICS_ÉDOUARD_DALADIER_DESC"
+					picture = GFX_portrait_fra_leon_blum
+					expire = "1965.1.1"
+					ideology = socialism
+					traits = {
+						reluctant_interventionist
+						stout_defender
+					}
+				}
+
+				set_country_flag = prime_minister_daladier
+    }
+}
+
+#Daladier forms New Government
+country_event = {
+    id = france.38
+    title = france.38.t
+    desc = france.38.d
+    picture = GFX_report_event_finnish_letter
+
+    fire_only_once = yes
+
+    trigger = {
+				has_country_leader = {
+					name = "Léon Blum"
+				}
+        original_tag = FRA
+        has_government = democratic
+				date > 1938.4.1
+    }
+
+		mean_time_to_happen = {
+        days = 26
     }
 
     option = {
